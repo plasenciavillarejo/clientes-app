@@ -4,23 +4,11 @@
 <app-header></app-header>
 <div class="container">
 
-
-<h1>
-  {{title}}!
-</h1>
-
-<!-- Para llamar a un atributto se le indica las 2 llaves -> {{Atributo}}-->
-<!--<ul>
-  <li>Curso: {{curso}}</li>
-  <li>Alumno: {{alumno}}</li>
-</ul>-->
-
-<!-- Llamamos a nuestra directiva.
-<app-directiva></app-directiva>-->
+<!-- 1.- Vamos a tener una directiva especial para cargar las rutas.
+    2.- Es una directiva de angular que nos indica donde se va a rendirizar las rutas -->
+<router-outlet></router-outlet>
 
 
-<!--Mostramos nuestros clientes creado /app/clientes -->
-<app-clientes></app-clientes>
 
 
 </div>

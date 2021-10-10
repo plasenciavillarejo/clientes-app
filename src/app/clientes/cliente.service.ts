@@ -14,7 +14,6 @@ import{ Cliente } from './cliente';
  En angular 6 se importa -> import { of, Observable } from 'rxjs'*/
 import {of} from 'rxjs';
 import {from,Observable} from 'rxjs';
-//import {of,Observable} from 'rxjs';
 
 
 /* 1.- El operador @Injectable indica que es una clase de servicio. Por lo que se puede inyectar

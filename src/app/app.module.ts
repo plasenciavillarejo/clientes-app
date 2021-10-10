@@ -11,6 +11,22 @@ import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
 /* Importamos el ClienteService*/
 import { ClienteService } from './clientes/cliente.service';
+
+/* 1.- Importamos el Route para mapear las direcciones*/
+import { RouterModule, Routes } from '@angular/router';
+
+/* 2.- Creamos una constante que tiene un arreglo con las rutas.
+  Definimos todas las rutas URL de nuestra aplicación. */
+const routes: Routes =[
+  /* path: '' -> Será nuestro Home que nos redirigirá a '/Clientes' */
+  {path: '', redirectTo: '/clientes', pathMatch: 'full'},
+/*3.- Ejemplo de como mapear una ruta:
+  path: 'Nombre_Que_Queramos' , component'Asignamos_Componente'*/
+  {path: 'directivas', component: DirectivaComponent},
+  {path: 'clientes', component: ClientesComponent},
+];
+
+
 @NgModule({
   /* 1.- Se registras nuestras clases @component */
   declarations: [
@@ -21,7 +37,9 @@ import { ClienteService } from './clientes/cliente.service';
     ClientesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    /* 4.- Debemos pasar el import de Router aquí. */
+    RouterModule.forRoot(routes)
   ],
   /* 1.- Se registran nuestras clases de servicios.
      2.- Llammos a nuestra clase ClienteService */
