@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 /* 1.- Importamos la clase cliente para poder utilizarla. */
-import{ Cliente} from './cliente';
+import{ Cliente } from './cliente';
+
+/* Importamos la clase ClienteService*/
+import { ClienteService } from './cliente.service';
 
 @Component({
   selector: 'app-clientes',
@@ -9,19 +12,15 @@ import{ Cliente} from './cliente';
 })
 export class ClientesComponent implements OnInit {
 
-  /* 2.- Arreglo Json con los objetos de Cliente. */
-  clientes: Cliente[] = [
-    {id: 1, nombre: 'Jose', apellido: 'Plasencia', email: 'Plasenci@gmail.com', createAt: '2081-09-12'},
-    {id: 2, nombre: 'Andres', apellido: 'Garcia', email: 'Plasenci@gmail.com', createAt: '2011-09-12'},
-    {id: 3, nombre: 'Mari Lola', apellido: 'Lopez', email: 'Plasenci@gmail.com', createAt: '2091-09-12'},
-    {id: 4, nombre: 'Antonio', apellido: 'Plasencia', email: 'Plasenci@gmail.com', createAt: '2001-09-12'},
-    {id: 5, nombre: 'Ani', apellido: 'Villarejo', email: 'Plasenci@gmail.com', createAt: '2011-09-12'},
-    {id: 6, nombre: 'Leonor', apellido: 'Balbuena', email: 'Plasenci@gmail.com', createAt: '2019-09-12'}
-  ];
+  clientes: Cliente[];
 
-  constructor() { }
+/* 1.- Usamos la Inyección de dependencias para llamar al ClienteService */
+  constructor(private clienteService: ClienteService) { }
 
+/* 1.- Este evento se realizar cuando se inicia el componente por lo que quedaría perfecto asignar
+los clientes aquí. */
   ngOnInit(): void {
+    this.clientes = this.clienteService.getClientes();
   }
 
 }

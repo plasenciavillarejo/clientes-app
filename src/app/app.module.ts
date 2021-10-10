@@ -9,7 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
-
+/* Importamos el ClienteService*/
+import { ClienteService } from './clientes/cliente.service';
 @NgModule({
   /* 1.- Se registras nuestras clases @component */
   declarations: [
@@ -22,8 +23,9 @@ import { ClientesComponent } from './clientes/clientes.component';
   imports: [
     BrowserModule
   ],
-  /* 1.- Se registran nuestras clases de servicios. */
-  providers: [],
+  /* 1.- Se registran nuestras clases de servicios.
+     2.- Llammos a nuestra clase ClienteService */
+  providers: [ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
