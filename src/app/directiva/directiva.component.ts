@@ -11,7 +11,16 @@ export class DirectivaComponent {
   la vista. */
   listaCurso: string[] = ['TypeScript','JavaScript','Java SE','C#','PHP'];
 
+/* 3.- Tenemos una variables para mostrar u ocultar un listado. */
+  habilitar: boolean = true;
 
   constructor() { }
+/* 4.- Metodo que no retorna nada, solo asignar un valor al habilitar.
+  5.- Mostrara/Ocultara la lista segun su valor ->
+      (click)="habilitar=(habilitar ==true)? false:true;"*/
+
+    setHabilitar(): void {
+      this.habilitar = (this.habilitar==true)? false: true;
+    }
 
 }

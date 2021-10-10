@@ -1,8 +1,22 @@
+
+<!-- 1.- Creamos un boton para ocultar o mostrar el listado de cursos.
+    2.- Para ocultarlo tenemos que invocar una accion -> (click)=""
+      (click)="habilitar=(habilitar ==true)? false:true;
+  Nota: Podemos meterlo dentro del html o crearlo en el components y llamar a la función
+  tal y como lo tenemos aquí. Pero podías sustituir la funcion por el método de más arriba.
+    3.- Para ver en el boton "Mostar/Ocultar" usaremos las {{}}
+         {{ habilitar == true? 'Ocultar': 'Mostrar'}}-->
+<button type="button" (click)="setHabilitar()"
+name="button" class="btn btn-primary my-3">{{ habilitar == true? 'Ocultar': 'Mostrar'}}</button>
+
+
 <div class="card">
   <div class="card-header">
     Listado de Cursos
   </div>
-  <ul class="list-group">
+
+  <!-- 3.- Vamos a preguntar para ocultar o mostrar el listado. Usamos el ngIf -->
+  <ul class="list-group" *ngIf="habilitar == true ">
   <!-- 1.- Vamos a tener nuestro ngFor.
        2.- Usamos boostrap para nuestros estilos.
        3.- Vamos a usar la directiva ngFor -> *ngFor="let curso of listaCurso"
