@@ -20,7 +20,11 @@ export class ClientesComponent implements OnInit {
 /* 1.- Este evento se realizar cuando se inicia el componente por lo que quedaría perfecto asignar
 los clientes aquí. */
   ngOnInit(): void {
-    this.clientes = this.clienteService.getClientes();
+/* 2.- Tenemos que registrar el Observador a nuestros clientes. */
+    this.clienteService.getClientes().subscribe(
+/* 3.- Creamos nuestro observador que actulizara el listado de clientes */
+  clientes => this.clientes = clientes
+    );
   }
 
 }
