@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    Listado de Cursos
+  </div>
+  <ul class="list-group">
+  <!-- 1.- Vamos a tener nuestro ngFor.
+       2.- Usamos boostrap para nuestros estilos.
+       3.- Vamos a usar la directiva ngFor -> *ngFor="let curso of listaCurso"
+         Otra forma que provee el Plugin para trabajar con Angular -> *ng2-ngFo
+       4.- Para imprimir por pantalla llamamos a la variable creado con el let -> {{curso}}
+      5.- Para ejecutar nos vamos a la consola -> ng serve cuando es la primera vez
+       ng serve -o -> Cuando ya hemos iniciado el servidor. -->
+
+    <li class="list-group-item" *ngFor="let curso of listaCurso">{{ curso }}</li>
+  </ul>
+</div>

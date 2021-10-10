@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 /* 1.- Importamos la clase header.component */
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { DirectivaComponent } from './directiva/directiva.component';
 
 @NgModule({
   /* 1.- Se registras nuestras clases @component */
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DirectivaComponent
   ],
   imports: [
     BrowserModule
