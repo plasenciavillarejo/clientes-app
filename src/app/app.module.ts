@@ -3,12 +3,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+/* 5.- Agregamos el HTTPClient que es el mecanismo con el cual nos podemos conectar al servidor
+backend definido en spring-boot.
+   6.- Luego debemos de agregar y registrar este modulo en import */
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
+
 /* 1.- Importamos la clase header.component */
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
+
 /* Importamos el ClienteService*/
 import { ClienteService } from './clientes/cliente.service';
 
@@ -38,8 +45,11 @@ const routes: Routes =[
   ],
   imports: [
     BrowserModule,
+    /* 7.- Agregamos el HTTPClientModule*/
+    HttpClientModule,
     /* 4.- Debemos pasar el import de Router aquí. */
     RouterModule.forRoot(routes)
+
   ],
   /* 1.- Se registran nuestras clases de servicios.
      2.- Llammos a nuestra clase ClienteService */
