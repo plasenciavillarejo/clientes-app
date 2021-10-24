@@ -5,6 +5,8 @@ import{ Cliente } from './cliente';
 
 /* Importamos la clase ClienteService*/
 import { ClienteService } from './cliente.service';
+import swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-clientes',
@@ -27,4 +29,36 @@ los clientes aquí. */
     );
   }
 
+/* Implementamos el método delete()*/
+delete(cliente: Cliente): void{
+this.clienteService.delete(cliente.id).subscribe(
+  response => {
+    this.clientes = this.clientes.filter(cli => cli !== cliente)
+  }
+)
+
+/*
+  Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+})
+*/
+
+
+
+
+  }
 }
