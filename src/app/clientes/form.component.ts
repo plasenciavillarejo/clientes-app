@@ -3,6 +3,8 @@ import { Cliente } from './cliente';
 import { ClienteService } from './cliente.service';
 import { Router } from '@angular/router'
 
+/* Importamos librería para las alertas*/
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
@@ -23,8 +25,11 @@ export class FormComponent implements OnInit {
 
   /* Creamos el método create() que se conecta con nuestra Api rest del back-end*/
   public create(): void{
-    this.clienteService.create(this.cliente).subscribe(
-      response => this.router.navigate(['/clientes'])
+    this.clienteService.create(this.cliente)
+      .subscribe(cliente =>{
+        this.router.navigate(['/clientes'])
+        swal('Nuevo Cliente',`El cliente ${cliente.nombre} se ha creado con éxito`,'success');
+      }
     )
   }
 
