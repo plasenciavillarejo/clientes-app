@@ -3,7 +3,7 @@
   <div class="card-body">
 
 <!-- Invocamos al método create() dentro de la clase form.components -->
-<form (ngSubmit) = "create()">
+<form>
   <!-- Para que sea Horizontal.
       mgModel -> Nos va a poblar los datod del formulario al atributo Cliente() y sus atributos. -->
   <div class="form-group row">
@@ -29,7 +29,12 @@
 
 <div class="form-group row my-2 text-left">
   <div class="col-sm-6">
-    <button class="btn btn-rounded btn-primary" name="button">Crear</button>
+    <button class="btn btn-rounded btn-primary" name="button" (click)='create()'
+    *ngIf="!cliente.id else elseBlock">Crear</button>
+<!-- Creamos la etiqueta elseBlock-->
+<ng-template #elseBlock>
+  <button class="btn btn-rounded btn-primary" name="button" (click)='update()'>Editar</button>
+</ng-template>
   </div>
 </div>
 

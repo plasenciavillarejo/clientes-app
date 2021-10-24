@@ -53,6 +53,17 @@ cargarCliente(): void {
   })
 }
 
+/* Vamos a crear el método Update. */
+update():void{
+  this.clienteService.update(this.cliente)
+  .subscribe( cliente => {
+    this.router.navigate(['/clientes'])
+    swal('Cliente Actualizado',`El cliente ${cliente.nombre} se ha actualizado con éxito`,'success');
+  }
+
+  )
+}
+
 
 
 }

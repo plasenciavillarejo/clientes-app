@@ -60,9 +60,16 @@ create(cliente: Cliente): Observable<Cliente>{
   return this.http.post<Cliente>(this.urlEndPoint, cliente, {headers: this.httpHeaders});
   }
 
-/*  Vamos a implementar el método editar cliente. */
+/*  1.- Vamos a implementar el método editar cliente en la parte de front-end. */
 getCliente(id): Observable<Cliente>{
   return this.http.get<Cliente>(`${this.urlEndPoint}/${id}`);
 }
+
+/* 2.- Vamos actualizar cliente en la parte del back-end. */
+update(cliente: Cliente): Observable<Cliente>{
+  return this.http.put<Cliente>(`${this.urlEndPoint}/${cliente.id}`, cliente,{headers: this.httpHeaders})
+}
+
+
 
 }
