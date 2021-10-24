@@ -38,7 +38,9 @@ const routes: Routes =[
   {path: 'directivas', component: DirectivaComponent},
   {path: 'clientes', component: ClientesComponent},
 /* 4.- Vamos agregar la ruta del Formulario. */
-  {path: 'clientes/form', component: FormComponent}
+  {path: 'clientes/form', component: FormComponent},
+/* Creamos la ruta para editar el cliente. */
+  {path: 'clientes/form/:id', component: FormComponent}
 ];
 
 

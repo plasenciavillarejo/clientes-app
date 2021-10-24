@@ -60,4 +60,9 @@ create(cliente: Cliente): Observable<Cliente>{
   return this.http.post<Cliente>(this.urlEndPoint, cliente, {headers: this.httpHeaders});
   }
 
+/*  Vamos a implementar el método editar cliente. */
+getCliente(id): Observable<Cliente>{
+  return this.http.get<Cliente>(`${this.urlEndPoint}/${id}`);
+}
+
 }
