@@ -1,1 +1,13 @@
 /* 1.- Sirve para indicar los estilos globales de la aplicación */
+
+/* 2.- Vamos arreglar el Layout, ya que si hay más registros de la cuenta el pie de página sale mal posicionado.
+Vamos a poner posición relativa */
+
+html {
+  position:relative;
+  min-height: 100%;
+}
+/* 3.- Metemos la misma altura que tenemos en el footer/footer.component.css*/
+body{
+  margin-bottom: 60px;
+}
