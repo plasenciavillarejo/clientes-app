@@ -14,8 +14,7 @@ import{ Cliente } from './cliente';
  En angular 6 se importa -> import { of, Observable } from 'rxjs'*/
 import {of} from 'rxjs';
 import {from,Observable} from 'rxjs';
-
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 /* 1.- El operador @Injectable indica que es una clase de servicio. Por lo que se puede inyectar
 a otro componentes por ejemplo a una clase Component. */
@@ -27,8 +26,14 @@ export class ClienteService {
   /* Definimos la URl */
 private urlEndPoint:string = 'http://localhost:8081/api/clientes/';
 
+/* creamos atributo con las cabeceras*/
+private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+
+
 /* Inyectamos el HttpClient*/
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+  }
 
   /* 1.- Obtenemos un método getClientes() que retornara los clientes.
     2.- Vamos a modirica la clase getClientes() -> Ya que queremos que sea un método asincrono para nuestro
@@ -48,4 +53,11 @@ private urlEndPoint:string = 'http://localhost:8081/api/clientes/';
     getClientes(): Observable<Cliente[]>{
       return this.http.get<Cliente[]>(this.urlEndPoint);
     }
+
+/* Implemenamos el método Crear Cliente. */
+
+create(cliente: Cliente): Observable<Cliente>{
+  return this.http.post<Cliente>(this.urlEndPoint, cliente, {headers: this.httpHeaders});
   }
+
+}

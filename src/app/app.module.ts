@@ -22,6 +22,12 @@ import { ClienteService } from './clientes/cliente.service';
 /* 1.- Importamos el Route para mapear las direcciones*/
 import { RouterModule, Routes } from '@angular/router';
 
+/* Lo importa directamente el form.component*/
+import { FormComponent } from './clientes/form.component';
+/* Lo importamos nosotros*/
+import { FormsModule } from '@angular/forms';
+
+
 /* 2.- Creamos una constante que tiene un arreglo con las rutas.
   Definimos todas las rutas URL de nuestra aplicación. */
 const routes: Routes =[
@@ -31,6 +37,8 @@ const routes: Routes =[
   path: 'Nombre_Que_Queramos' , component'Asignamos_Componente'*/
   {path: 'directivas', component: DirectivaComponent},
   {path: 'clientes', component: ClientesComponent},
+/* 4.- Vamos agregar la ruta del Formulario. */
+  {path: 'clientes/form', component: FormComponent}
 ];
 
 
@@ -41,12 +49,15 @@ const routes: Routes =[
     HeaderComponent,
     FooterComponent,
     DirectivaComponent,
-    ClientesComponent
+    ClientesComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     /* 7.- Agregamos el HTTPClientModule*/
     HttpClientModule,
+    /* Importamos el FormsModule */
+    FormsModule,
     /* 4.- Debemos pasar el import de Router aquí. */
     RouterModule.forRoot(routes)
 

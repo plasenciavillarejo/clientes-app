@@ -1,0 +1,40 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{ titulo }}</div>
+  <div class="card-body">
+
+<!-- Invocamos al método create() dentro de la clase form.components -->
+<form (ngSubmit) = "create()">
+  <!-- Para que sea Horizontal.
+      mgModel -> Nos va a poblar los datod del formulario al atributo Cliente() y sus atributos. -->
+  <div class="form-group row">
+    <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="cliente.nombre" name="nombre">
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="cliente.apellido" name="apellido">
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="email" class="col-form-label col-sm-2">Email</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email">
+      </div>
+  </div>
+
+<div class="form-group row my-2 text-left">
+  <div class="col-sm-6">
+    <button class="btn btn-rounded btn-primary" name="button">Crear</button>
+  </div>
+</div>
+
+
+</form>
+
+  </div>
+</div>
